@@ -39,7 +39,3 @@ src/
         ├── SvgPencil.tsx   # 수정 아이콘
         └── SvgClose.tsx    # 삭제 아이콘
 ```
-
-## 개발 기록
-
-날짜별 작업 내용과 배운 점은 [LOG.md](LOG.md)에 남깁니다.
