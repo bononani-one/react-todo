@@ -21,7 +21,7 @@ export default function App() {
       {/*할 일 등록*/}
       <TodoEditor />
       {/* 할 일 목록 */}
-      <TodoList />
+      <TodoList todos={todos}/>
     </div>
   );
 }
