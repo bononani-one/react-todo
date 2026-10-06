@@ -22,13 +22,16 @@ export default function App() {
            )
       );
   };
+  const deleteTodo = (id:number) => {
+    setTodo((todos)=> todos.fillter((todo)=> todo.id !== id));
+  };
   return(
     <div className="todo">
      <TodoHeader />
       {/*할 일 등록*/}
       <TodoEditor />
       {/* 할 일 목록 */}
-      <TodoList todos={todos} toggleTodo={toggleTodo} />
+      <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo} />
     </div>
   );
 }
