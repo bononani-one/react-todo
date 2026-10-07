@@ -4,10 +4,11 @@ import Button from "@/components/html/Button";
 import Checkbox from "@/components/html/Checkbox"
 
 export default function TodoListItem({
-    todo,toggleTodo,
+    todo,toggleTodo,deleteTodo,
     }:{
       todo:Todo;
       toggleTodo:(id:number) => void;
+      deleteTodo:(id:number) => void;
       }){
     return(
        // 할 일이 완료되면 .todo__item--complete 추가 
@@ -22,7 +23,7 @@ export default function TodoListItem({
             <Button className="todo__action-button">
                 <SvgPencil />
             </Button>
-            <Button className="todo__action-button">
+            <Button className="todo__action-button" onClick={()=>deleteTodo(todo.id)}>
                 <SvgClose />
             </Button>
             </div>
