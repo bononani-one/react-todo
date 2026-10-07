@@ -23,7 +23,11 @@ export default function App() {
       );
   };
   const deleteTodo = (id:number) => {
-    setTodo((todos)=> todos.fillter((todo)=> todo.id !== id));
+    setTodos((todos)=> todos.fillter((todo)=> todo.id !== id));
+  };
+  const modifyTodo = (id:number,title:string) => {
+    setTodos((todos)=>
+      todos.map((todo)=> (todo.id === id ? { ...todo,title} : todo))
   };
   return(
     <div className="todo">
@@ -31,7 +35,7 @@ export default function App() {
       {/*할 일 등록*/}
       <TodoEditor />
       {/* 할 일 목록 */}
-      <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo} />
+      <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo} modifyTodo={modifyTodo} />
     </div>
   );
 }
