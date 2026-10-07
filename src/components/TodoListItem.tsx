@@ -6,11 +6,12 @@ import Button from "@/components/html/Button";
 import Checkbox from "@/components/html/Checkbox"
 
 export default function TodoListItem({
-    todo,toggleTodo,deleteTodo,
+    todo,toggleTodo,deleteTodo,modifyTodo,
     }:{
       todo:Todo;
       toggleTodo:(id:number) => void;
       deleteTodo:(id:number) => void;
+      modifyTodo:(id:number,title:string) => void;
       }){
      const [isModify,setIsModify]=useState(false);
      const [modifyTitle,setModifyTitle]=useState('');
@@ -18,6 +19,9 @@ export default function TodoListItem({
      const modifyHandler = () =>{
         setIsModify((modify) => !modify);
         setModifyTitle(modifyTitle === '' ? todo.title : modifyTitle;
+        if(modifyTitle.trim() != '' && modifyTitle !== todo.title) {
+           modifyTodo(todo.id,modifyTitle);
+        }
     };
     return(
        // 할 일이 완료되면 .todo__item--complete 추가 
