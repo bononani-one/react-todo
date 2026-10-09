@@ -18,7 +18,7 @@ export default function TodoListItem({
      //수정버튼 클릭 시 수정모드로 전환
      const modifyHandler = () =>{
         setIsModify((modify) => !modify);
-        setModifyTitle(modifyTitle === '' ? todo.title : modifyTitle;
+        setModifyTitle(modifyTitle === '' ? todo.title : modifyTitle);
         if(modifyTitle.trim() != '' && modifyTitle !== todo.title) {
            modifyTodo(todo.id,modifyTitle);
         }
@@ -29,7 +29,7 @@ export default function TodoListItem({
           {!isModify && (
             <Checkbox parentClassName="todo__checkbox-group" 
             type="checkbox" className="todo__checkbox"
-            checked={todo.done} onChange={()=>toggleTodo{todo.id)}>{todo.title}
+            checked={todo.done} onChange={()=>toggleTodo(todo.id)}>{todo.title}
             </Checkbox>
            )}
           {isModify && (
