@@ -1,4 +1,4 @@
-import { useState,useEffect } from "react";
+import {useCallback,useState,useEffect } from "react";
 import TodoEditor from "@/components/TodoEditor";
 import TodoHeader from "@/components/TodoHeader";
 import TodoList from "@/components/TodoList";
@@ -16,21 +16,21 @@ export default function App() {
       },
     ]);
   };
-  const toggleTodo = (id:number) => {
+  const toggleTodo = useCallback((id:number) => {
       setTodos((todos) =>
          todos.map((todo) =>
             todo.id === id ? {...todo,done: !todo.done} : todo
            )
       );
-  };
-  const deleteTodo = (id:number) => {
+  },[]);
+  const deleteTodo =  useCallback((id:number) => {
     setTodos((todos)=> todos.filter((todo)=> todo.id !== id));
-  };
-  const modifyTodo = (id:number,title:string) => {
+  },[]);
+  const modifyTodo = useCallback((id:number,title:string) => {
     setTodos((todos)=>
                todos.map((todo)=> (todo.id === id ? { ...todo,title} : todo))
             );
-  };
+  },[]);
   //todos상태 값이 변경 될 때마다 localStorage에 저장
   //useEffect 훅으로 업데이트, 사이드 이펙트로 처리
   useEffect(()=>{
