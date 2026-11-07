@@ -4,6 +4,23 @@
 
 ---
 
+## 2026-11-07
+
+### 한 일
+
+- `feature/context` 브랜치를 만들고 셀프체크(Context API로 전역 상태 관리) 시작
+- `TodoProvider` 작성 중
+
+### 배운 것
+
+- **children**: 컴포넌트의 여는 태그와 닫는 태그 사이에 넣은 내용. React가 자동으로 `children`이라는 props로 넘겨줌
+  - `<Checkbox>{todo.title}</Checkbox>` → `Checkbox` 안에서 `children`은 `todo.title`
+  - `<Button><SvgPencil /></Button>` → `children`은 `<SvgPencil />`
+  - `<TodoProvider>` 안에 컴포넌트들을 넣으면 그게 통째로 `children`. Provider는 Context로 감싸서 그대로 보여주기만 함
+  - 이름은 바꿀 수 없음. 다른 이름(`content` 등)으로 받으면 `undefined`
+
+---
+
 ## 2026-10-09
 
 ### 한 일
