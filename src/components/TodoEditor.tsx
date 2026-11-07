@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import Button from '@/components/html/Button';
 import Input from '@/components/html/Input';
+import { useTodoStore } from '@/store/todoStore';
 
-export default function TodoEditor({addTodo,}:{addTodo:(title:string)=>void;})
+export default function TodoEditor()
 {
+    const addTodo = useTodoStore((state)=>state.addTodo); //액션 생성 함수 가져오기
     const [text,setText] = useState(''); //text 상태 정의, 초깃값 빈 문자열
     const handleSubmit = (e:React.SubmitEvent<HTMLFormElement>)=>{
         e.preventDefault();//페이지 새로고침 막기
