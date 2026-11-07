@@ -1,18 +1,12 @@
 import {memo,useState} from 'react';
-import Input from './html/Input';
 import SvgPencil from "@/components/svg/SvgPencil";
 import SvgClose from "@/components/svg/SvgClose";
 import Button from "@/components/html/Button";
 import Checkbox from "@/components/html/Checkbox"
+import { useTodoActionContext } from '@/hooks/useTodoContext';
 
-export default memo(function TodoListItem({
-    todo,toggleTodo,deleteTodo,modifyTodo,
-    }:{
-      todo:Todo;
-      toggleTodo:(id:number) => void;
-      deleteTodo:(id:number) => void;
-      modifyTodo:(id:number,title:string) => void;
-      }){
+export default memo(function TodoListItem({todo}:{todo:Todo}){
+     const {modifyTodo,toggleTodo,deleteTodo} = useTodoActionContext();
      const [isModify,setIsModify]=useState(false);
      const [modifyTitle,setModifyTitle]=useState('');
      //수정버튼 클릭 시 수정모드로 전환

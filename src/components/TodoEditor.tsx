@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import Button from '@/components/html/Button';
 import Input from '@/components/html/Input';
+import { useTodoActionContext } from '@/hooks/useTodoContext';
 
-export default function TodoEditor({addTodo,}:{addTodo:(title:string)=>void;})
+export default function TodoEditor()
 {
+    const {addTodo} = useTodoActionContext();
     const [text,setText] = useState(''); //text 상태 정의, 초깃값 빈 문자열
     const handleSubmit = (e:React.SubmitEvent<HTMLFormElement>)=>{
         e.preventDefault();//페이지 새로고침 막기
